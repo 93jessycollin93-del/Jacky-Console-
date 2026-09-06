@@ -1,0 +1,70 @@
+{
+  "$schema": "https://raw.githubusercontent.com/93jessycollin93-del/jacky/main/superstation/spec/pod.manifest.schema.json",
+  "kernel": "1.0.0",
+  "pod": {
+    "id": "sas.pod.jacky-console",
+    "name": "Jacky Console",
+    "role": "surface",
+    "repo": "93jessycollin93-del/Jacky-Console-",
+    "summary": "Lovable/Supabase console \u2014 JackieControl, BotFoundry, BotSwarm, Vault, SphereCommand, TelegramShell."
+  },
+  "provides": [
+    {
+      "id": "sas.console.command",
+      "version": "1.0.0",
+      "title": "JackieControl command surface"
+    },
+    {
+      "id": "sas.bots.foundry",
+      "version": "1.0.0",
+      "title": "Bot generation \u2014 bot-generate, gunit-bot-gen"
+    },
+    {
+      "id": "sas.bots.swarm",
+      "version": "1.0.0",
+      "title": "Swarm orchestration \u2014 gunit-agent-cycle"
+    },
+    {
+      "id": "sas.link.relay",
+      "version": "1.0.0",
+      "title": "Edge-function engine relay \u2014 supabase/functions/jackie-orchestrate"
+    },
+    {
+      "id": "sas.vault.secret",
+      "version": "1.0.0",
+      "title": "API key custody \u2014 supabase/functions/api-keys",
+      "privileged": true
+    }
+  ],
+  "requires": [
+    {
+      "id": "sas.link.engine",
+      "range": "1.x"
+    },
+    {
+      "id": "sas.telemetry.system",
+      "range": "1.x"
+    },
+    {
+      "id": "sas.route.ask",
+      "range": "1.x"
+    },
+    {
+      "id": "sas.control.power",
+      "range": "1.x",
+      "optional": true
+    }
+  ],
+  "surfaces": [
+    {
+      "kind": "edge-function",
+      "base": "/functions/v1",
+      "note": "Supabase edge functions"
+    },
+    {
+      "kind": "static",
+      "base": "/",
+      "note": "Vite/React + shadcn"
+    }
+  ]
+}
